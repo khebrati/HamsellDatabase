@@ -1,0 +1,1 @@
+create table Hamsell.BusinessModeration(ModerationID integer references Moderation,AccountID int references Account,primary key (ModerationID));
