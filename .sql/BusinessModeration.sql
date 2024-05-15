@@ -1,1 +1,2 @@
 create table Hamsell.BusinessModeration(ModerationID integer references Moderation,AccountID int references Account,primary key (ModerationID));
+alter table Hamsell.BusinessModeration add(BusinessID integer references Business);
