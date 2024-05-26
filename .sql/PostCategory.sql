@@ -1,0 +1,1 @@
+create table Hamsell.PostCategory(PCID integer primary key);
