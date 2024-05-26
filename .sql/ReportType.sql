@@ -1,0 +1,1 @@
+create table Hamsell.ReportType(RTID integer primary key);
