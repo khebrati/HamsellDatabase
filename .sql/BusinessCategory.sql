@@ -1,0 +1,1 @@
+create table Hamsell.BusinessCategory (BCIB integer primary key);
