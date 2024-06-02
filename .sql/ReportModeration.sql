@@ -1,4 +1,7 @@
-create table Hamsell.ReportModeration(ModerationID integer references Moderation,AccountID int references Account,primary key (ModerationID));
-alter table Hamsell.ReportModeration add(ReportID integer references Report);
-alter table Hamsell.ReportModeration add(
-	ReportModerationResultId integer references ReportModerationResult);
+create table Hamsell.ReportModeration(
+ModerationId integer references Moderation,
+AdminId int not null references Account,
+primary key (ModerationId),
+ReportID integer not null references Report,
+ReportModerationResultId integer not null references ReportModerationResult
+);

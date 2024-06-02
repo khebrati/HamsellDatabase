@@ -1,3 +1,5 @@
-create table Hamsell.Province(ProvinceID integer primary key);
-alter table hamsell.province add name char(20);
+create table Hamsell.Province(
+ProvinceID integer primary key,
+ProvinceName varchar(100) not null
+);
 desc Hamsell.Province;

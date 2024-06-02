@@ -1,1 +1,3 @@
-create table Hamsell.Admin(AccountID integer references Account,primary key (AccountID));
+create table Hamsell.Admin(
+AccountID integer references Account,
+primary key (AccountID));

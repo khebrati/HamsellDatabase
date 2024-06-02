@@ -1,9 +1,9 @@
-create table Hamsell.Account(AccountID integer primary key);
-alter table Hamsell.Account add (
-	firstname char(25),
-    lastname char(25),
-    creationDate date,
-    PhoneNumber VARCHAR(10) CHECK (PhoneNumber REGEXP '^[0-9]+$'),
+create table Hamsell.Account(
+	AcountId integer primary key,
+	FirstName char(100) not null,
+    LastName char(100),
+    CreationDate datetime not null,
+    PhoneNumber VARCHAR(15) CHECK (PhoneNumber REGEXP '^[0-9]+$'),
     EmailAddress VARCHAR(254) UNIQUE
 );
 desc Hamsell.Account;
