@@ -7,7 +7,6 @@ create table Hamsell.Post(
 );
 alter table Hamsell.Post add (
 	title char(30),
-    viewCount integer,
     PSID integer references PostStatus,
     Address char(100),
     Price integer,
