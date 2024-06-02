@@ -1,17 +1,14 @@
 create table Hamsell.Post(
 	PostID integer primary key,
     BusinessID integer references Business,
-    CityID integer references City,
-    AccountID integer references Account,
-    PCID integer references PostCategory
-);
-alter table Hamsell.Post add (
-	title char(30),
-    viewCount integer,
-    PSID integer references PostStatus,
-    Address char(100),
+    UserId integer references User,
+    CityID integer not null references City,
+    PostCategoryId integer not null references PostCategory,
+    title varchar(30),
+    PostStatusId integer not null references PostStatus,
+    Address varchar(400),
     Price integer,
-    Description text(500),
-    CreationDate date
+    PostDescription varchar(500),
+    CreationDate datetime not null
 );
 desc Hamsell.Post;

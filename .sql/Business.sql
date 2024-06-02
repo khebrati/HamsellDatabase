@@ -1,7 +1,7 @@
 create table Hamsell.Business(
 	BusinessID integer primary key,
-	CityId integer references City,
-    AccountID integer references Account,
-    BCID integer references BusinessCategory
+	CityId integer not null references City,
+    UserId integer not null references User,
+    BusinessCategoryId integer not null references BusinessCategory
 );
 desc Hamsell.Business;

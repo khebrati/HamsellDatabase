@@ -1,2 +1,7 @@
-create table Hamsell.PostModeration(ModerationID integer references Moderation,AccountID int references Account,primary key (ModerationID));
-alter table Hamsell.PostModeration add(PostID integer references Post);
+create table Hamsell.PostModeration(
+ModerationId integer not null references Moderation,
+AdminId int not null references Account,
+primary key (ModerationId),
+PostID integer not null references Post,
+PostModerationResultId integer not null references postmoderationResult
+);
