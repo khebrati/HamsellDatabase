@@ -5,7 +5,7 @@ create table Hamsell.Post(
     CityID integer not null references City,
     PostCategoryId integer not null references PostCategory,
     title varchar(30),
-    PostStausId integer not null references PostStatus,
+    PostStatusId integer not null references PostStatus,
     Address varchar(400),
     Price integer,
     PostDescription varchar(500),
