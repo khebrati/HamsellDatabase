@@ -1,3 +1,4 @@
+use hamsell;
 -- fake data inserters
 INSERT INTO Hamsell.Account (AcountId, FirstName, LastName, CreationDate, PhoneNumber, EmailAddress)
 VALUES (1, 'John', 'Doe', '2022-01-01', '1234567890', 'john.doe@example.com'),
@@ -10,8 +11,12 @@ VALUES (1, 'John', 'Doe', '2022-01-01', '1234567890', 'john.doe@example.com'),
        (8, 'Admin', 'Three', '2022-01-08', '3334445555', 'admin.three@example.com'),
        (9, 'Admin', 'Four', '2022-01-09', '4445556666', 'admin.four@example.com'),
        (10, 'Admin', 'Five', '2022-01-10', '5556667777', 'admin.five@example.com');
-       
-INSERT INTO Hamsell.User (AccountID, CityID, UserStatusId)
+
+INSERT INTO Hamsell.UserStatus(UserStatusId,UserStatusValue) VALUES
+(1,'Enabled'),
+(2,'Disabled');
+
+INSERT INTO Hamsell.User (AcountID, CityID, UserStatusId)
 VALUES (1, 1, 1),
        (2, 2, 1),
        (3, 3, 1),
@@ -120,30 +125,113 @@ VALUES (1, 'AdultContent'),
     (2, 'Fraud'),
     (3, 'MisleadingListing');
 
+INSERT INTO Hamsell.Report (ReportId, ReportTypeId, PostId, UserId, ReportDate)
+VALUES 
+(1, 1, 1, 1,'2022-01-01'),
+(2, 2, 2, 2, '2022-01-02'),
+(3, 3, 3, 3, '2022-01-03'),
+(4, 1, 4, 4, '2022-01-04'),
+(5, 2, 5, 5, '2022-01-05'),
+(6, 3, 6, 6, '2022-01-06'),
+(7, 1, 7, 7,  '2022-01-07'),
+(8, 2, 8, 8,  '2022-01-08'),
+(9, 3, 9, 9,  '2022-01-09'),
+(10, 1, 10, 10, '2022-01-10'),
+(11, 2, 1, 11,  '2022-01-11'),
+(12, 3, 2, 12,  '2022-01-12'),
+(13, 1, 3, 13, '2022-01-13'),
+(14, 2, 4, 14,  '2022-01-14'),
+(15, 3, 5, 15,  '2022-01-15'),
+(16, 1, 6, 16, '2022-01-16'),
+(17, 2, 7, 17,  '2022-01-17'),
+(18, 3, 8, 18,  '2022-01-18'),
+(19, 1, 9, 19,  '2022-01-19'),
+(20, 2, 10, 20, '2022-01-20');
 
 INSERT INTO Hamsell.Moderation (ModerationID, Note, CreationDate)
-VALUES
-    (1, 'User account created', '2022-01-01 00:00:00'),
-    (2, 'User account suspended', '2022-01-05 00:00:00'),
-    (3, 'User account deleted', '2022-01-10 00:00:00'),
-    (4, 'User account activated', '2022-01-15 00:00:00'),
-    (5, 'User account banned', '2022-01-20 00:00:00'),
-    (6, 'User account unbanned', '2022-01-25 00:00:00'),
-    (7, 'User account updated', '2022-02-01 00:00:00'),
-    (8, 'User account password reset', '2022-02-05 00:00:00'),
-    (9, 'User account email changed', '2022-02-10 00:00:00'),
-    (10, 'User account phone number changed', '2022-02-15 00:00:00');
-    
+VALUES 
+(1, 'Note 1', '2022-01-01'),
+(2, 'Note 2', '2022-01-02'),
+(3, 'Note 3', '2022-01-03'),
+(4, 'Note 4', '2022-01-04'),
+(5, 'Note 5', '2022-01-05'),
+(6, 'Note 6', '2022-01-06'),
+(7, 'Note 7', '2022-01-07'),
+(8, 'Note 8', '2022-01-08'),
+(9, 'Note 9', '2022-01-09'),
+(10, 'Note 10', '2022-01-10'),
+(11, 'Note 11', '2022-01-11'),
+(12, 'Note 12', '2022-01-12'),
+(13, 'Note 13', '2022-01-13'),
+(14, 'Note 14', '2022-01-14'),
+(15, 'Note 15', '2022-01-15'),
+(16, 'Note 16', '2022-01-16'),
+(17, 'Note 17', '2022-01-17'),
+(18, 'Note 18', '2022-01-18'),
+(19, 'Note 19', '2022-01-19'),
+(20, 'Note 20', '2022-01-20');
+
+INSERT INTO Hamsell.ReportModeration (ModerationId, AdminId, ReportId, ReportModerationResultId)
+VALUES 
+(1, 1, 1, 1),
+(2, 2, 2, 2),
+(3, 3, 3, 3),
+(4, 1, 4, 1),
+(5, 2, 5, 2),
+(6, 3, 6, 3),
+(7, 1, 7, 1),
+(8, 2, 8, 2),
+(9, 3, 9, 3),
+(10, 1, 10, 1);
+
+INSERT INTO Hamsell.PostModeration (ModerationId, AdminId, PostID, PostModerationResultId)
+VALUES 
+(11, 1, 1, 1),
+(12, 2, 2, 2),
+(13, 3, 3, 1),
+(14, 1, 4, 2),
+(15, 2, 5, 1),
+(16, 3, 6, 2),
+(17, 1, 7, 1),
+(18, 2, 8, 2),
+(19, 3, 9, 1),
+(20, 1, 10, 2);
+
+-- updating posts that have not been accepted by an admin
+UPDATE Hamsell.Post
+SET PostStatusId = 3
+WHERE PostID = 1 OR PostId = 3 OR PostId = 5 OR PostId = 7 OR PostId = 9;
+
+-- updating posts that have been accepted
+UPDATE Hamsell.Post
+set PostStatusId = 2
+where PostId != 1 AND PostId != 3 AND PostId != 5 AND PostId != 7 AND PostId != 9;
+
+-- disabling the user who has a Report on their posts that says they have to be disabled
+-- select *
+-- from User join Post on User.AcountId = Post.UserId
+-- join Report on Report.PostId = Post.PostId
+-- join ReportModeration on ReportModeration.ReportId = Report.ReportId
+-- join ReportModerationResult on ReportModeration.ReportModerationResultId = ReportModerationResult.ReportModerationResultId
+-- where ReportModerationResult.ReportModerationResultValue = "DisableUser";
+update User set
+UserStatusId = 2 where User.AcountId = 3;
 
 
-INSERT INTO Hamsell.PostModeration (ModerationID, AdminID, PostID, PostModerationResultId)
-VALUES
-    (1, 6, 21, 2),
-    (2, 7, 22, 2),
-    (3, 8, 23, 2),
-    (4, 9, 24, 2),
-    (5, 10, 25, 2),
-    (6, 6, 26, 2);
+-- updating posts that their report says post must be disabled
+-- select *
+-- from Post
+-- join Report on Report.PostId = Post.PostId
+-- join ReportModeration on ReportModeration.ReportId = Report.ReportId
+-- join ReportModerationResult on ReportModeration.ReportModerationResultId = ReportModerationResult.ReportModerationResultId
+-- where ReportModerationResult.ReportModerationResultValue = "DisablePost";
+update Post set PostStatusId = 3 
+where PostId = 2 or PostId = 5 or PostId = 8;
 
-    
-    
+-- disabling the post whose user is disabled
+-- select *
+-- from User join Post on User.AcountId = Post.UserId
+-- where User.UserStatusId = 2;
+update Post set PostStatusId = 3 
+where PostId = 3 or PostId = 6 or PostId = 9 or PostId = 12 or PostId = 15 or PostId = 18;
+
