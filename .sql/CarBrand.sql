@@ -1,4 +1,4 @@
-drop table CarBrand;
-create table CarBrand(
+create table Hamsell.CarBrand(
 CarBrandId integer primary key,
-CarBrandName varchar(100) not null)
+CarBrandName varchar(100) not null
+);

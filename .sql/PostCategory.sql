@@ -3,3 +3,4 @@ create table Hamsell.PostCategory(
 PostCategoryId integer primary key,
 PostCategoryName varchar(100) not null
 );
+select * from Hamsell.PostCategory;

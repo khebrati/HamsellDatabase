@@ -1,5 +1,5 @@
 create table Hamsell.Account(
-	AcountId integer primary key,
+	AccountId integer primary key,
 	FirstName char(100) not null,
     LastName char(100),
     CreationDate datetime not null,
