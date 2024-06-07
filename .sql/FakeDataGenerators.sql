@@ -71,7 +71,14 @@ VALUES
 (17, 2, 2, 2, 'Post Title 17', 'Post Description 17', 1700, '2022-01-17', 1),
 (18, 3, 3, 3, 'Post Title 18', 'Post Description 18', 1800, '2022-01-18', 1),
 (19, 1, 1, 1, 'Post Title 19', 'Post Description 19', 1900, '2022-01-19', 1),
-(20, 2, 2, 2, 'Post Title 20', 'Post Description 20', 2000, '2022-01-20', 1);
+(20, 2, 2, 2, 'Post Title 20', 'Post Description 20', 2000, '2022-01-20', 1),
+(21, 4, 1, 1, 'Post Title 21', 'Post Description 21', 100, '2022-01-21', 2),
+(22, 4, 2, 1, 'Post Title 22', 'Post Description 22', 200, '2022-01-22', 2),
+(23, 4, 3, 2, 'Post Title 23', 'Post Description 23', 300, '2022-01-23', 2),
+(24, 5, 1, 3, 'Post Title 24', 'Post Description 24', 400, '2022-01-24', 2),
+(25, 5, 2, 4, 'Post Title 25', 'Post Description 25', 500, '2022-01-25', 2),
+(26, 5, 3, 5, 'Post Title 26', 'Post Description 26', 600, '2022-01-26', 2);
+
 
 -- Insert fake data into Province
 INSERT INTO Hamsell.Province (ProvinceId, ProvinceName)
@@ -126,5 +133,17 @@ VALUES
     (8, 'User account password reset', '2022-02-05 00:00:00'),
     (9, 'User account email changed', '2022-02-10 00:00:00'),
     (10, 'User account phone number changed', '2022-02-15 00:00:00');
+    
+
+
+INSERT INTO Hamsell.PostModeration (ModerationID, AdminID, PostID, PostModerationResultId)
+VALUES
+    (1, 6, 21, 2),
+    (2, 7, 22, 2),
+    (3, 8, 23, 2),
+    (4, 9, 24, 2),
+    (5, 10, 25, 2),
+    (6, 6, 26, 2);
+
     
     
