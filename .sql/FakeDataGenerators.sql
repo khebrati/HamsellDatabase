@@ -112,3 +112,19 @@ INSERT INTO Hamsell.ReportType (ReportTypeId, ReportName)
 VALUES (1, 'AdultContent'),
     (2, 'Fraud'),
     (3, 'MisleadingListing');
+
+
+INSERT INTO Hamsell.Moderation (ModerationID, Note, CreationDate)
+VALUES
+    (1, 'User account created', '2022-01-01 00:00:00'),
+    (2, 'User account suspended', '2022-01-05 00:00:00'),
+    (3, 'User account deleted', '2022-01-10 00:00:00'),
+    (4, 'User account activated', '2022-01-15 00:00:00'),
+    (5, 'User account banned', '2022-01-20 00:00:00'),
+    (6, 'User account unbanned', '2022-01-25 00:00:00'),
+    (7, 'User account updated', '2022-02-01 00:00:00'),
+    (8, 'User account password reset', '2022-02-05 00:00:00'),
+    (9, 'User account email changed', '2022-02-10 00:00:00'),
+    (10, 'User account phone number changed', '2022-02-15 00:00:00');
+    
+    
