@@ -24,11 +24,11 @@ VALUES (1, 1, 1),
        (5, 5, 1);
 
 INSERT INTO Hamsell.Admin (AccountID)
-VALUES (6),
-       (7),
-       (8),
-       (9),
-       (10);
+VALUES (1),
+       (2),
+       (3),
+       (4),
+       (5);
 
 INSERT INTO Hamsell.OsModel (OsModelId, OsModelName)
 VALUES (1, 'Android'),
@@ -48,7 +48,10 @@ VALUES (1, 'Toyota'),
 INSERT INTO Hamsell.PostCategory (PostCategoryId, PostCategoryName)
 VALUES (1, 'Phone'),
        (2, 'Car'),
-       (3, 'House');
+       (3, 'House'),
+       (4,'Digital'),
+       (5,'Housing');
+
 
 INSERT INTO hamsell.PostStatus (PostStatusId, StatusValue)
 VALUES (1, 'InQueue'),

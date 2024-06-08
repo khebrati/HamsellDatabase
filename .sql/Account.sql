@@ -6,4 +6,3 @@ create table Hamsell.Account(
     PhoneNumber VARCHAR(15) CHECK (PhoneNumber REGEXP '^[0-9]+$'),
     EmailAddress VARCHAR(254) UNIQUE
 );
-desc Hamsell.Account;
